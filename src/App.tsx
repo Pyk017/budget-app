@@ -11,6 +11,7 @@ import Error from "./pages/Error";
 
 // IMPORT ACTIONS
 import { logoutAction } from "./actions/logout";
+import { deleteBudget } from "./actions/deleteBudget";
 
 // IMPORT TOAST LIBRARY 
 import { ToastContainer } from 'react-toastify';
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       element: <BudgetPage />,   
       loader: budgetLoader,
       action: budgetAction,
+      children: [{
+        path: "delete", 
+        action: deleteBudget,
+      }],
       errorElement: <Error />
     }, {
       path: "/expenses", 
